@@ -1,0 +1,11 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 16
+VisualStudioVersion = 16.0.0.0
+MinimumVisualStudioVersion = 16.0.0.0
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HorrorTutorial.Windows", "HorrorTutorial.Windows\HorrorTutorial.Windows.csproj", "{F4AB2B68-EA83-413F-AFDD-1A7C36A1E96A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HorrorTutorial", "HorrorTutorial\HorrorTutorial.csproj", "{63E92AC7-A093-47C4-AB5C-86BD752CE404}"
+EndProject
+Global
+EndGlobal
