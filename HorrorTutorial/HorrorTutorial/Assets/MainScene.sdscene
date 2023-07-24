@@ -6,11 +6,10 @@ ChildrenIds: []
 Offset: {X: 0.0, Y: 0.0, Z: 0.0}
 Hierarchy:
     RootParts:
-        - ref!! 62a9474e-814d-4c67-b1fe-7c2e4cd571d2
         - ref!! d64e410d-7095-45cb-987e-c477b941cb28
         - ref!! b03bdc06-f3e3-4260-ac69-07180520e475
         - ref!! d35c2257-4a3e-4193-8bdc-0c6a4692a8b9
-        - ref!! a31f6db1-e052-4e46-bd61-b6382f009df1
+        - ref!! 7dfc6224-b566-4e3f-908f-1b17b79f8c82
     Parts:
         -   Entity:
                 Id: 62a9474e-814d-4c67-b1fe-7c2e4cd571d2
@@ -18,8 +17,8 @@ Hierarchy:
                 Components:
                     cb815c676576aa34dcbe65eb6d18b842: !TransformComponent
                         Id: 4cddc2f8-2b88-4550-9719-417515a23917
-                        Position: {X: 2.6, Y: 0.6, Z: -1.0}
-                        Rotation: {X: 0.0, Y: 0.82903755, Z: 0.0, W: 0.5591929}
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
                     5c9444a3b841db695e6337966a974308: !CameraComponent
@@ -27,29 +26,42 @@ Hierarchy:
                         Name: null
                         Projection: Perspective
                         Slot: 85b0bc0e-d980-4800-8c50-6af4ba6bd1b6
-                    c82d78b9d9d367ceab0f0c02ac56e103: !HorrorTutorial.BasicCameraController,HorrorTutorial
-                        Id: 6713fa94-e7a4-440d-8b0b-d4fa6c978fee
-                        Gamepad: false
-                        KeyboardMovementSpeed: {X: 5.0, Y: 5.0, Z: 5.0}
-                        TouchMovementSpeed: {X: 0.7, Y: 0.7, Z: 0.3}
-                        SpeedFactor: 5.0
-                        KeyboardRotationSpeed: {X: 3.0, Y: 3.0}
-                        MouseRotationSpeed: {X: 1.0, Y: 1.0}
-                        TouchRotationSpeed: {X: 1.0, Y: 0.7}
         -   Entity:
-                Id: a31f6db1-e052-4e46-bd61-b6382f009df1
-                Name: Sphere
+                Id: 7dfc6224-b566-4e3f-908f-1b17b79f8c82
+                Name: player
                 Components:
-                    4b0a326227ee688c987098a701ee9509: !TransformComponent
-                        Id: f37a550b-2743-4ed0-be5f-f7fc3f0f48e8
-                        Position: {X: 0.0, Y: 0.5, Z: 0.0}
+                    4a10b492cba7ecdc106a25deaa877319: !TransformComponent
+                        Id: bd01106d-f408-45b0-9c42-d2d74e6e6f94
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                        Children: {}
-                    f5fa0ee0e51a651e9afa0ca4afc46558: !ModelComponent
-                        Id: 4226a013-335f-4eb0-9f9e-a3634b4572a5
-                        Model: 37a44d82-335a-468d-9318-e826d6fd58af:Sphere
-                        Materials: {}
+                        Children:
+                            0df01ec16d1e9b917c20e8375011c521: ref!! be29f671-a75b-412f-b4d3-80e6ff459911
+                    da2f095ba86cac06898aebe54032d072: !CharacterComponent
+                        Id: 7393c20b-e71c-45e7-8159-74f51a54d7ac
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        FallSpeed: 10.0
+                        MaxSlope: {Radians: 0.7853982}
+                        JumpSpeed: 5.0
+                        Gravity: {X: 0.0, Y: -10.0, Z: 0.0}
+                        ColliderShapes:
+                            27cd148061220aab247333e05b915767: !CapsuleColliderShapeDesc
+                                Length: 1.0
+                                LocalOffset: {X: 0.0, Y: 0.75, Z: 0.0}
+                                LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                    b2f43ed3821668c5f329ce2d50b1cee9: !HorrorTutorial.Code.Player.InputHandler,HorrorTutorial
+                        Id: 12fdbd73-a9fe-43ba-8228-a58583b5fb9f
+                    867003c94e3cb34bb78f946ef194d67e: !HorrorTutorial.Code.Player.PlayerMover,HorrorTutorial
+                        Id: 36955f60-3a98-4cc4-965f-0035e4a1206e
+                        MoveSpeed: 5.0
+                        MouseSpeed: 100.0
+                        Character: ref!! 7393c20b-e71c-45e7-8159-74f51a54d7ac
+                        CameraPivot: ref!! c2e37e39-f04c-4a2c-9897-42ee7fad36ea
         -   Entity:
                 Id: b03bdc06-f3e3-4260-ac69-07180520e475
                 Name: Skybox
@@ -68,6 +80,17 @@ Hierarchy:
                         Type: !LightSkybox
                             Skybox: f92162eb-004e-4bd9-a62a-4117b2e929b3:Skybox
         -   Entity:
+                Id: c2e37e39-f04c-4a2c-9897-42ee7fad36ea
+                Name: CameraPivot
+                Components:
+                    804ac72d183b0c555cbdff30b3e0b53d: !TransformComponent
+                        Id: be29f671-a75b-412f-b4d3-80e6ff459911
+                        Position: {X: 0.0, Y: 1.3208213, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children:
+                            db6baf50601bf505ccec29afe384b100: ref!! 4cddc2f8-2b88-4550-9719-417515a23917
+        -   Entity:
                 Id: d35c2257-4a3e-4193-8bdc-0c6a4692a8b9
                 Name: Ground
                 Components:
@@ -81,6 +104,20 @@ Hierarchy:
                         Id: 46f6e5e9-3a81-48d7-b301-c4f04c8413ff
                         Model: 0bf45db1-c903-4e36-af8b-5c6141139174:Ground
                         Materials: {}
+                    c565d1da9053f2678d210b2dd735a1e4: !StaticColliderComponent
+                        Id: 7ed6c926-ad9f-4c0a-89ac-c2215f60d68a
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        IsTrigger: false
+                        AlwaysUpdateNaviMeshCache: false
+                        ColliderShapes:
+                            4453ef9849c303b2c734c1f0eda75b58: !StaticPlaneColliderShapeDesc
+                                Normal: {X: 0.0, Y: 1.0, Z: 0.0}
+                                Offset: 0.0
         -   Entity:
                 Id: d64e410d-7095-45cb-987e-c477b941cb28
                 Name: Directional light
